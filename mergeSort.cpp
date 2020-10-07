@@ -3,31 +3,28 @@
 // ;Author: Danny Ceron Garcia
 // ;Date: 10-5-2020
 // ;==========================================
-int s[10] = {120, 10, 69, 420, 42, 143, 117, 823, 0, 1337};
+int s[] = {120, 10, 69, 420, 42, 143, 117, 823, 0, 1337,11111};
 #include <iostream>
 #include <vector>
-
 // ==========================================
 // mergesort in place
 
 void merge2(int low, int mid, int high)
 {
     int i, j, k;
-    std::vector<int> u(high);
+    int *u;
+    u = new int[high];
     i = low; j = mid + 1; k = low;
     while (i <= mid && j <= high)
     {
         if (s[i] < s[j])
         {
             u[k] = s[i];
-            // testing
-            // std::cout<<s[i] << '-' << i << '\n';
             i++;
         }
         else
         {
             u[k] = s[j];
-            // std::cout<< s[j] << '-' << j<< '\n';
             j++;
         }
         k++;
@@ -56,6 +53,7 @@ void merge2(int low, int mid, int high)
         s[low] = u[low];
         low++;
     }
+    delete[] u;
 }
 void mergesort2(int low, int high)
 {
@@ -63,7 +61,6 @@ void mergesort2(int low, int high)
     if (low < high)
     {
         mid = (low + high) / 2;
-        // std::cout<< mid<<'\n';
         mergesort2(low, mid);
         mergesort2(mid + 1, high);
         merge2(low, mid, high);
@@ -71,15 +68,20 @@ void mergesort2(int low, int high)
 }
 // ==========================================
 
+
+
 // testing main
 int main()
 {
-    mergesort2(0, 10);
+    // testing inplce recursive merge
+    int n = (int)(sizeof(s)/sizeof(*s));
+    std::cout<<"n =" <<n<<std::endl;
+    mergesort2(0, n-1);
     int z = 0;
-    while(z<10){
+    while(z<n){
         std::cout << s[z] <<'-';
         z++;
     }
-    
+    std::cout << std::endl;
     return 0;
 }
