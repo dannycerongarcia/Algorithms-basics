@@ -148,7 +148,7 @@ int main()
     // testing inplce recursive merge
     int n = (int)(sizeof(s) / sizeof(*s));
     std::cout << "recursive Inplace array mersort\n";
-    // mergesort2(0, n-1);
+    mergesort2(0, n-1);
     int z = 0;
     while (z < n)
     {
@@ -156,12 +156,14 @@ int main()
         z++;
     }
     std::cout << "\n recursive mersort\n";
-
-    mergesort(n-1, s);
+   
+    int s2[] = {777, 13, 69, 420, 42, 143, 117, 823, 911, 1337,411,880,21,-2,0};
     z = 0;
+    n = (int)(sizeof(s2)/sizeof(*s2));
+    mergesort(n, s2);
     while (z < n)
     {
-        std::cout << s[z] << '-';
+        std::cout << s2[z] << ',';
         z++;
     }
     std::cout << std::endl;
