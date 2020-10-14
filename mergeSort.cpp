@@ -3,7 +3,7 @@
 // ;Author: Danny Ceron Garcia
 // ;Date: 10-5-2020
 // ;==========================================
-int s[11] = {120, 10, 69, 420, 42, 143, 117, 823, 0, 1337, 11111};
+int s0[11] = {120, 10, 69, 420, 42, 143, 117, 823, 0, 1337, 11111};
 #include <bits/stdc++.h>
 #include <math.h>
 // Most implementation of MergeSort have an average case complexity of T(n) = O(nlogn)
@@ -76,7 +76,7 @@ void mergesort(int n, int newS[])
 
 // ==========================================
 // mergesort in place
-void merge2(int low, int mid, int high)
+void merge2(int low, int mid, int high,int s[])
 {
     int i, j, k;
     int *u;
@@ -125,15 +125,15 @@ void merge2(int low, int mid, int high)
     delete[] u;
     u =nullptr;
 }
-void mergesort2(int low, int high)
+void mergesort2(int low, int high, int s[])
 {
     int mid;
     if (low < high)
     {
         mid = (low + high) / 2;
-        mergesort2(low, mid);
-        mergesort2(mid + 1, high);
-        merge2(low, mid, high);
+        mergesort2(low, mid,s);
+        mergesort2(mid + 1, high,s);
+        merge2(low, mid, high,s);
     }
 }
 
@@ -214,16 +214,16 @@ int main()
     std::cin.tie(0);
 
     // testing inplce recursive merge
-    int n = (int)(sizeof(s) / sizeof(*s));
-    std::cout << "recursive Inplace array mersort\n";
-    mergesort2(0, n-1);
+    int n = (int)(sizeof(s0) / sizeof(*s0));
+    std::cout << "recursive Inplace array merge Sort\n";
+    mergesort2(0, n-1,s0);
     int z = 0;
     while (z < n)
     {
-        std::cout << s[z] << '-';
+        std::cout << s0[z] << '-';
         z++;
     }
-    std::cout << "\n\nrecursive mersort\n";
+    std::cout << "\n\nrecursive merge Sort\n";
    
     int s2[] = {777, 13, 69, 420, 42, 143, 117, 823, 911, 1337,411,880,21,-2,0};
     z = 0;
@@ -234,8 +234,8 @@ int main()
         std::cout << s2[z] << ',';
         z++;
     }
-    std::cout << "\n\nDynamic merge sort\n";
-    int s3[] = {777, 13, 69, 420, 42, 143, 117, 823, 911, 1337,411,880,21,-2,0,999,1234,59009};
+    std::cout << "\n\nDynamic merge Sort\n";
+    int s3[] = {777, 13, 69, 420, 42, 143, 117, 823, 911, 1337,411,880,21,-1,0,999,1234,59009};
     z = 0;
     n = (int)(sizeof(s3)/sizeof(*s3));
     mergeSort3(n, s3);
