@@ -1,9 +1,9 @@
 // ;==========================================
-// ;Tittle: Merge sorts
+// ;Tittle: Merge sorts 🐊
 // ;Author: Danny Ceron Garcia
 // ;Date:   10-5-2020
 // ;==========================================
-// Most implementation of MergeSort have an average case complexity of T(n) = O(nlogn)
+// Most implementation of MergeSort have an average case complexity of T(𝙣) = O(𝙣log𝙣)
 #include <bits/stdc++.h>
 #include <math.h>
 // ==========================================
