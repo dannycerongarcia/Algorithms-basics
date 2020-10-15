@@ -1,9 +1,17 @@
+// ;==========================================
+// ;Tittle: Merge sorts
+// ;Author: Danny Ceron Garcia
+// ;Date:   10-14-2020
+// ;==========================================
 #include <bits/stdc++.h>
 #include "mergeSort.h"
+#include "quickSort.h"
 int s0[11] = {120, 10, 69, 420, 42, 143, 117, 823, 0, 1337, 11111};
 
+// testing in main
 int main()
 {
+    //========================================== Merge Sort ==========================================
     // make input and output more efficient
     std::ios::sync_with_stdio(0);
     std::cin.tie(0);
@@ -41,6 +49,16 @@ int main()
     }
 
     std::cout << "\n\n";
-    
+    //======================================== End Merge Sort ========================================
+    //========================================== Quick Sort ==========================================
+    int s4[]={0,1,120, 10, 69, 420, 42, 143, 117, 823, -69, 1337, 11111};
+    quickSort(0,(int)(sizeof(s4)/sizeof(*s4)),s4);
+    std::cout<<"Quick Sort\n";
+    for(int number:s4)
+    {
+        std::cout<<number<<",";
+    }
+    std::cout<<"\n";
+    //======================================== End Quick Sort ========================================
     return 0;
 }
